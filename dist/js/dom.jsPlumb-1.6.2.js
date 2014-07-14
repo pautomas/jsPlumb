@@ -1317,7 +1317,8 @@
             matchingDroppables = [], intersectingDroppables = [],
             downListener = function(e) {
                 if (this.isEnabled() && canDrag()) {
-                    var _f =  filter(e) && _inputFilter(e, el, this.k);
+                    var _f = !e.target.classList.contains('no-drag') &&
+                            filter(e) && _inputFilter(e, el, this.k);
                     if (_f) {
                         if (!clone)
                             dragEl = el;
